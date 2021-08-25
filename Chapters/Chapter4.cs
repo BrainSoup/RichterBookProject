@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Book_Rickhter
 {
-    class Chapter4
+    static class Chapter4
     {
         class Base
         { }

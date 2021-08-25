@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Book_Rickhter
 {
-    class Chapter5
+    static class Chapter5
     {
         class SomeRef
         { public Int32 x; }
