@@ -17,13 +17,50 @@ namespace Book_Rickhter
         public static void Execute()
         {
             ChapterTools.PrintHeader("Chapter5");
+
+            TypeConversation();
+
+            CheckedUncheckedExample();
+
             ValueReferenceTypes();
 
             BoxingUnboxing();
         }
 
-        public static void ValueReferenceTypes()
+        private static void TypeConversation()
         {
+            //In cases of loose precicion explicit conversation required, in other cases implicit conv is ok
+            int i = 10;
+            byte b = (byte)i;   //explicit conversation
+            i = b;              //implicit conversation
+        }
+
+        private static void CheckedUncheckedExample()
+        {
+            Console.WriteLine("\n Checked/Unchecked:\n");
+            //By default compiler don't check Overflow
+            Byte b = 200;
+            b += 100;
+            Console.WriteLine("Byte b = 200;\nb += 100;\nresult: b = " + b + "\n");
+
+            try
+            {
+                b = checked((byte)(200 + b));   //checked()
+                checked                         //Same as above checked{}
+                {
+                    b += 200;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("b = checked((byte)(200 + b));\n" + e.Message);
+            }
+        }
+
+        private static void ValueReferenceTypes()
+        {
+            Console.WriteLine("\n Value/Reference types:\n");
+
             var rt = new SomeRef(); //Allocated in heap
             var vt = new SomeVal(); //Allocated in stack
             Console.WriteLine("class is " + (rt is ValueType ? "" : "not") + " ValueType");
@@ -42,7 +79,7 @@ namespace Book_Rickhter
             Console.WriteLine("vt = " + vt.x + ", vt1 = " + vt1.x);
         }
 
-        public static void BoxingUnboxing()
+        private static void BoxingUnboxing()
         {
             //Boxing
             //Allocate heap mem for struct + 2 fields: typeRef and SyncBlock
