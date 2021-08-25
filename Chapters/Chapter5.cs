@@ -14,6 +14,8 @@ namespace Book_Rickhter
         struct SomeVal
         { public Int32 x; }
 
+        enum SomeEnum { val1, val2, val3}
+
         public static void Execute()
         {
             ChapterTools.PrintHeader("Chapter5");
@@ -60,11 +62,18 @@ namespace Book_Rickhter
         private static void ValueReferenceTypes()
         {
             Console.WriteLine("\n Value/Reference types:\n");
+            //Other diffs 
+            //1) Value types can't be used in inheritance
+            //2) Value types can be boxed or unboxed
+            //3) Value types stored in stack while reference types always in heap
+            //4) unboxed Value types can't be null (except nullable)
 
             var rt = new SomeRef(); //Allocated in heap
             var vt = new SomeVal(); //Allocated in stack
+            var et = SomeEnum.val1;
             Console.WriteLine("class is " + (rt is ValueType ? "" : "not") + " ValueType");
             Console.WriteLine("struct is " + (vt is ValueType ? "" : "not") + " ValueType");
+            Console.WriteLine("enum is " + (et is ValueType ? "" : "not") + " ValueType");
 
             rt.x = 1;
             vt.x = 1;
