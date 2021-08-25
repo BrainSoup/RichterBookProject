@@ -8,7 +8,7 @@ namespace Book_Rickhter
     {
         static void Main(string[] args)
         {
-            Chapter4.Execute();
+            //Chapter4.Execute();
         }
     }
 }
