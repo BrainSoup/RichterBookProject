@@ -68,6 +68,7 @@ namespace Book_Rickhter
             //3) Value types stored in stack while reference types always in heap
             //4) unboxed Value types can't be null (except nullable)
             //5) Value types not used in garbage collector
+            //6) Equals method works in different way
 
             var rt = new SomeRef(); //Allocated in heap
             var vt = new SomeVal(); //Allocated in stack
@@ -87,6 +88,9 @@ namespace Book_Rickhter
 
             Console.WriteLine("rt = " + rt.x + ", rt1 = " + rt1.x);
             Console.WriteLine("vt = " + vt.x + ", vt1 = " + vt1.x);
+
+            Console.WriteLine("(rt.Equals(rt1)) = " + (rt.Equals(rt1)));   //Check only reference
+            Console.WriteLine("(vt.Equals(vt1)) = " + (vt.Equals(vt1)));   //Check every field
         }
 
         private static void BoxingUnboxing()
