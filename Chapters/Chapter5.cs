@@ -67,6 +67,7 @@ namespace Book_Rickhter
             //2) Value types can be boxed or unboxed
             //3) Value types stored in stack while reference types always in heap
             //4) unboxed Value types can't be null (except nullable)
+            //5) Value types not used in garbage collector
 
             var rt = new SomeRef(); //Allocated in heap
             var vt = new SomeVal(); //Allocated in stack
